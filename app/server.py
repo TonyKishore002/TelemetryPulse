@@ -469,6 +469,18 @@ def create_app():
 
         return jsonify(pr_result), 200
 
+    dist_dir = os.path.join(ROOT_DIR, "frontend", "dist")
+    from flask import send_from_directory
+
+    @app.route("/", defaults={"path": ""})
+    @app.route("/<path:path>")
+    def catch_all(path):
+        if path and os.path.exists(os.path.join(dist_dir, path)):
+            return send_from_directory(dist_dir, path)
+        if os.path.exists(os.path.join(dist_dir, "index.html")):
+            return send_from_directory(dist_dir, "index.html")
+        return jsonify({"service": "TelemetryPulse API", "status": "running"}), 200
+
     return app
 
 if __name__ == "__main__":
