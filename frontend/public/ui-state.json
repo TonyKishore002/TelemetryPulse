@@ -1,0 +1,148 @@
+{
+  "devices": {
+    "mobile": {
+      "scrollSettings": {
+        "type": "smooth",
+        "speed": 100,
+        "easing": "default",
+        "duration": 1200,
+        "isInfinite": false
+      },
+      "canvases": {
+        "ijsk": {
+          "cameraId": "ea94b165-c53b-4704-87a9-1633ae09cd51"
+        }
+      }
+    },
+    "tablet": {
+      "scrollSettings": {
+        "type": "smooth",
+        "speed": 100,
+        "easing": "default",
+        "duration": 1200,
+        "isInfinite": false
+      },
+      "canvases": {
+        "ijsk": {}
+      }
+    },
+    "desktop": {
+      "scrollSettings": {
+        "type": "smooth",
+        "speed": 100,
+        "easing": "default",
+        "duration": 1200,
+        "isInfinite": false
+      },
+      "canvases": {
+        "ijsk": {
+          "sceneId": "aefb19b0-0589-4c37-878d-126365187019",
+          "cameraId": "d1fb8215-f58d-4a0f-835b-c6d839185756"
+        }
+      }
+    }
+  },
+  "sections": {
+    "i84ba": {
+      "name": "Anchor - Hero",
+      "offsetY": 0,
+      "hash": "anchor-hero"
+    },
+    "ilwyn": {
+      "name": "Product Section",
+      "offsetY": 0,
+      "hash": "product-section"
+    },
+    "ilwyn-2-2-4": {
+      "name": "Solutions Section",
+      "offsetY": 0,
+      "hash": "solutions-section"
+    },
+    "ilwyn-2-2-2-3": {
+      "name": "Pricing Section",
+      "offsetY": 0,
+      "hash": "pricing-section"
+    }
+  },
+  "links": {
+    "i64wdm": {
+      "url": "https://sketchfab.com/tamminen",
+      "type": "external",
+      "newTab": true
+    }
+  },
+  "scrollAnimations": {
+    "i1lwz": {
+      "type": "section",
+      "start": "bottom",
+      "effectB": "fade",
+      "sectionId": "i84ba"
+    },
+    "i1lwz-2-4": {
+      "type": "section",
+      "start": "center",
+      "effectA": "fade",
+      "effectB": "fade",
+      "sectionId": "ijh6l-3-2"
+    }
+  },
+  "interactions": {
+    "i1lwz-2-3-4": [
+      {
+        "actions": [
+          {
+            "id": "iy2h61",
+            "type": "uiOverlay",
+            "event": "open"
+          }
+        ],
+        "mouseCursor": "pointer",
+        "triggerType": "mouseClick"
+      }
+    ],
+    "i1lwz-2-3-4-2": [
+      {
+        "actions": [
+          {
+            "id": "iy2h61",
+            "type": "uiOverlay",
+            "event": "close"
+          }
+        ],
+        "mouseCursor": "pointer",
+        "triggerType": "mouseClick"
+      }
+    ],
+    "iet44-4-2": [
+      {
+        "actions": [
+          {
+            "id": "iy2h61",
+            "type": "uiOverlay",
+            "event": "close"
+          }
+        ],
+        "mouseCursor": "pointer",
+        "triggerType": "mouseClick"
+      }
+    ]
+  },
+  "relativeOverlays": {},
+  "anchors": {
+    "i3owk-2-3": {
+      "percentage": 0.1
+    },
+    "i3owk-2-2-3": {
+      "percentage": 0.35
+    },
+    "i3owk-2-2-2": {
+      "percentage": 0.40599999999999997
+    },
+    "i3owk-2-2-2-2": {
+      "percentage": 0.499
+    },
+    "i3owk": {
+      "percentage": 0
+    }
+  }
+}

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <title>TelemetryPulse - Autonomous SRE &amp; Telemetry Remediation Platform</title>
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet" />
+
+    <script type="text/javascript">
+      window._pwInitialPath = window.location.pathname || "/";
+    </script>
+    <script defer="defer" fetchpriority="high" src="/script.js"></script>
+    <script type="text/javascript">
+      window._pwPreviewResourceUrls = [];
+      (function waterfallOptimizationScript(){
+        window._pwPreviewResourceUrls = window._pwPreviewResourceUrls || [];
+        if (!window._pwLoadFileRequestsCache) window._pwLoadFileRequestsCache = new Map;
+        if (!window._pwLoadFileResolveFnCache) window._pwLoadFileResolveFnCache = new Map;
+        window._pwSetFileCache = (fileUrl, blob) => {
+          if (!window._pwLoadFileResolveFnCache) throw new Error(`Variable "_pwLoadFileResolveFnCache" is undefined.`);
+          const blobUrl = (window.URL || window.webkitURL).createObjectURL(blob);
+          const resolveFn = window._pwLoadFileResolveFnCache.get(fileUrl);
+          if (!resolveFn) throw new Error(`Resolve function for file "${fileUrl}" not found.`);
+          resolveFn(blobUrl);
+        };
+        window._pwWaitForExplicitFileResolve = fileUrl => {
+          if (!window._pwLoadFileResolveFnCache) throw new Error(`Variable "_pwLoadFileResolveFnCache" is undefined.`);
+          if (!window._pwLoadFileRequestsCache) throw new Error(`Variable "_pwLoadFileRequestsCache" is undefined.`);
+          if (window._pwLoadFileResolveFnCache.has(fileUrl) && window._pwLoadFileRequestsCache.has(fileUrl)) return;
+          let resolveFn = void 0;
+          const explicitWaitPromise = new Promise(resolve => { resolveFn = resolve; });
+          window._pwLoadFileResolveFnCache.set(fileUrl, resolveFn);
+          window._pwLoadFileRequestsCache.set(fileUrl, explicitWaitPromise);
+        };
+        window._pwLoadFileFromCacheHelper = async fileUrl => {
+          if (!fileUrl) return void 0;
+          try {
+            const response = await fetch(fileUrl);
+            if (!response.ok) return void 0;
+            const blob = await response.blob();
+            const blobUrl = (window.URL || window.webkitURL).createObjectURL(blob);
+            return blobUrl;
+          } catch(error) { return void 0; }
+        };
+        window._pwLoadFileFromCache = async fileUrl => {
+          if (!fileUrl) return void 0;
+          if (!window._pwLoadFileRequestsCache) throw new Error(`Variable "_pwLoadFileRequestsCache" is undefined.`);
+          let requestPromise = window._pwLoadFileRequestsCache.get(fileUrl);
+          if (!requestPromise) {
+            if (!window._pwLoadFileFromCacheHelper) throw new Error(`Function "_pwLoadFileFromCacheHelper" is undefined.`);
+            requestPromise = window._pwLoadFileFromCacheHelper(fileUrl);
+            window._pwLoadFileRequestsCache.set(fileUrl, requestPromise);
+          }
+          return await requestPromise;
+        };
+        for (const explicitResourceUrl of window._pwPreviewResourceUrls) {
+          window._pwWaitForExplicitFileResolve(explicitResourceUrl);
+        }
+      })();
+    </script>
+
+    <link rel="preload" href="/scene-state/aefb19b0-0589-4c37-878d-126365187019.json" as="fetch" crossorigin="anonymous"/>
+    <link rel="preload" href="/files.peachworlds.com/website/45b99274-dc10-4b52-a165-c3959d3404ea/coin-single-angled-v2-optimize.glb" as="fetch" crossorigin="anonymous"/>
+    <link rel="preload" href="/files.peachworlds.com/website/30f20f7d-fbe0-41ff-aba7-c0341eabe9bc/coin-single-angled-v3-optimize.glb" as="fetch" crossorigin="anonymous"/>
+    <link rel="preload" href="/files.peachworlds.com/website/5ef113cc-bc16-4267-a509-24cd5a329b5b/gradient-bg.jpg" as="image" crossorigin="anonymous"/>
+    <link rel="preload" href="/files.peachworlds.com/website/7ef059c4-84c3-4d15-a283-6e0b9fce68cd/0667aeb308b9999fbb6bc4eafeabddf4.jpg" as="image" crossorigin="anonymous"/>
+    <link rel="preload" href="/files.peachworlds.com/website/f96c624b-bb2a-4550-96f0-2160a4a3aefd/e5bcb98aa3f21374519b14503ffcccc7.jpg" as="image" crossorigin="anonymous"/>
+    <link rel="preload" href="/ui-state.json" as="fetch" crossorigin="anonymous"/>
+
+    <style>
+      *{box-sizing:border-box;scrollbar-width:none}::-webkit-scrollbar{display:none}.pw-scene-style>canvas,.pwb-scene>canvas{display:block;width:100%;height:100%;user-select:none}a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border-width:0;border-style:none;border-color:currentcolor;font-family:inherit;vertical-align:baseline}b,body,em,i,strong{line-height:1}b,em,i,strong{line-height:inherit;font-style:italic}b,body,strong{font-style:inherit}b,strong{font-weight:bolder}ol,ul{list-style:none}table{border-collapse:collapse}:root{--pw-user-color-style-6ce387c8-34d4-4438-91b3-ef15f7563451:#f8f1f1;--pw-user-color-style-18aa8819-e702-4f28-b8e6-ca428ebfcae1:#ffffff0f;--pw-user-color-style-530acd54-7ab7-4802-a2e6-537fc4327e1f:#ffffff;--pw-user-color-style-0369eed5-f163-4453-8bd0-a79a5b9221fe:#0000004d;--pw-user-color-style-5d5bbd6c-3d15-4617-9080-925229b574d0:#ffffff66;--pw-user-color-style-31856edf-d870-43ac-a0a5-dc0365dd60ac:#ebe9e5;--pw-user-color-style-46ffe95e-f531-4cae-9231-f44505279910:#000000;--pw-user-color-style-cd560c70-5097-46bd-a08c-307edce4bb4e:#0000001a;--pw-user-color-style-842da9d8-cb04-49f6-8552-411d814e9a65:#000000;--pw-user-color-style-5a50d038-4e8c-4199-971a-20e5da394938:#ffffff;--pw-user-color-style-a2d34486-9ce4-4655-b4d4-30b22f4b5e05:#ffffffb3;--pw-user-color-style-58a27c95-4b10-481b-b47d-975b9f47ec10:#000000;--pw-user-color-style-c5f0860a-42a5-4066-b0fc-8b742e0a8fe7:#ffffff;--pw-user-color-style-ab46486e-d3d5-467b-b13f-af34b513c6d3:#1a1a1a;--pw-user-color-style-0fa32ba8-dd03-4bce-909c-a4fe5287b588:#d9d9d9;--pw-user-color-style-6d0a807c-a691-4251-9a6c-9a4350ed59c1:#ffffff;--pw-user-color-style-7ec2d05b-f86e-4bad-8d3e-4e6e9869bbf5:#ffffff80;--pw-user-color-style-fc61959b-4221-42ed-bf99-4851044c8563:#ffd6b2;--pw-user-color-style-a38946c7-57f1-49e9-bbc9-7b70eda7278e:#ff8a50;--pw-user-color-style-a7cde41e-0f7f-4095-a882-a21affbb5c85:#ffd278;--pw-user-color-style-c7660bd1-fc29-453a-9b4b-efed684e5ce6:#ff7600;--pw-user-color-style-5a32ccd6-d93e-4186-b25d-38c5b172d933:#cc4e2b}
+    </style>
+  </head>
+  <body id="i6mb">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

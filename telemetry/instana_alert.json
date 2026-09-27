@@ -1,0 +1,80 @@
+{
+  "incident_id": "INC-504-001",
+  "status": "TRIGGERED",
+  "severity": "CRITICAL",
+  "title": "504 Gateway Timeout / Supabase PostgREST Connection Pool Exhaustion",
+  "timestamp": "2026-09-26T12:00:00.000Z",
+  "service": "orders-summary-service",
+  "environment": "production",
+  "endpoint": "GET /api/v1/orders/summary",
+  "trace_id": "trace-82931",
+  "root_cause_analysis": {
+    "issue": "Unbatched sequential N+1 query loop fetching order_items per order",
+    "subsystem": "Supabase PostgREST Connection Pool",
+    "database_queries_per_request": 101,
+    "p99_latency_ms": 1280,
+    "p95_latency_ms": 1150,
+    "baseline_latency_ms": 25,
+    "error_rate_pct": 14.8,
+    "http_status": 504,
+    "error_message": "504 Gateway Timeout / Supabase PostgREST Connection Pool Exhaustion"
+  },
+  "metrics": {
+    "requests_per_minute": 2400,
+    "db_connections_peak": 250,
+    "db_connection_limit": 60,
+    "pool_exhaustion_events": 142,
+    "egress_volume_gb_day": 48.6,
+    "cpu_utilization_pct": 94.2
+  },
+  "spans": [
+    {
+      "span_id": "span-root-001",
+      "parent_span_id": null,
+      "operation": "HTTP GET /api/v1/orders/summary",
+      "duration_ms": 1280.4,
+      "tags": {
+        "http.status_code": 504,
+        "error": true
+      }
+    },
+    {
+      "span_id": "span-db-000",
+      "parent_span_id": "span-root-001",
+      "operation": "PostgREST GET /rest/v1/orders?select=*",
+      "duration_ms": 15.2,
+      "tags": {
+        "db.system": "postgresql",
+        "supabase.table": "orders"
+      }
+    },
+    {
+      "span_id": "span-db-001-loop",
+      "parent_span_id": "span-root-001",
+      "operation": "PostgREST GET /rest/v1/order_items?order_id=eq.1 [N+1 Repetition 1/100]",
+      "duration_ms": 12.6,
+      "tags": {
+        "db.system": "postgresql",
+        "supabase.table": "order_items",
+        "query.pattern": "N+1"
+      }
+    },
+    {
+      "span_id": "span-db-100-loop",
+      "parent_span_id": "span-root-001",
+      "operation": "PostgREST GET /rest/v1/order_items?order_id=eq.100 [N+1 Repetition 100/100]",
+      "duration_ms": 14.1,
+      "tags": {
+        "db.system": "postgresql",
+        "supabase.table": "order_items",
+        "query.pattern": "N+1"
+      }
+    }
+  ],
+  "remediation": {
+    "recommended_action": "Refactor client query to use PostgREST nested resource embedding: client.table('orders').select('*, order_items(*)')",
+    "projected_latency_reduction_pct": 98.0,
+    "projected_query_count_reduction": "101 queries -> 1 query",
+    "projected_cost_savings_monthly_usd": 140.00
+  }
+}

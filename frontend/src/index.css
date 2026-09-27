@@ -1,0 +1,32 @@
+/* ==========================================================================
+   GLOBAL RESET & SMOOTH SCROLL BASE
+   Exact fidelity with creativemarketing.peachweb.io
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hide native scrollbars to allow silky smooth momentum scrolling */
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
