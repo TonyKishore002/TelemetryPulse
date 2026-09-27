@@ -19,23 +19,26 @@ After approval, the change is executed inside an isolated BobShell environment a
 
 Once all verification checks pass, TelemetryPulse stages a GitHub pull request containing the remediation and incident post-mortem.
 
-```text
+
+## 🤖 IBM Bob 2.0 Autonomous Remediation Workflow
+
 | Step | IBM Bob 2.0 Process | Description | Output |
-|---|---|---|---|
-| 01 | **Incident Detection** | Receives `INC-504-001` with 504 Gateway Timeout and database connection pool exhaustion. | Production incident identified |
-| 02 | **AST Code Analysis** | Analyzes `orderController.js` and the related REST endpoint using AST analysis. | Relevant code path identified |
-| 03 | **Root Cause Detection** | Detects a sequential `for...of` loop performing individual database queries, resulting in 101 database round trips. | N+1 query bottleneck identified |
-| 04 | **Autonomous Refactoring** | Rewrites the sequential queries into a single optimized batched database query. | Optimized code patch |
-| 05 | **API Contract Validation** | Verifies that the refactor preserves the existing API response schema. | API-compatible refactor |
-| 06 | **Human Approval Gate** | Sends the generated code diff and root-cause summary to the Slack approval workflow. | SRE-approved remediation |
-| 07 | **BobShell Sandbox** | Executes the approved patch inside an isolated BobShell environment. | Verified sandbox environment |
-| 08 | **Performance Benchmark** | Compares the original and optimized implementations. | **1,489.1 ms → 28 ms (53.2×)** |
-| 09 | **Pytest Verification** | Runs automated regression and schema tests. | **7/7 tests passed** |
-| 10 | **Bandit SAST Scan** | Scans the generated code for security vulnerabilities. | **0 high-severity vulnerabilities** |
-| 11 | **GitHub PR Staging** | Stages the verified fix on `fix/orders-n-plus-one` and creates PR **#247**. | GitHub Pull Request |
-| 12 | **Incident Post-Mortem** | Generates the incident cause, remediation details, benchmark results, and verification summary. | Review-ready post-mortem |
+| :---: | :--- | :--- | :--- |
+| **01** | **Incident Detection** | Receives `INC-504-001` with 504 Gateway Timeout and database connection pool exhaustion. | Production incident identified |
+| **02** | **AST Code Analysis** | Analyzes `orderController.js` and the related REST endpoint using AST analysis. | Relevant code path identified |
+| **03** | **Root Cause Detection** | Detects a sequential `for...of` loop performing individual database queries, resulting in 101 database round trips. | N+1 query bottleneck identified |
+| **04** | **Autonomous Refactoring** | Rewrites the sequential queries into a single optimized batched database query. | Optimized code patch |
+| **05** | **API Contract Validation** | Verifies that the refactor preserves the existing API response schema. | API-compatible refactor |
+| **06** | **Human Approval Gate** | Sends the generated code diff and root-cause summary to the Slack approval workflow. | SRE-approved remediation |
+| **07** | **BobShell Sandbox** | Executes the approved patch inside an isolated BobShell environment. | Verified sandbox environment |
+| **08** | **Performance Benchmark** | Compares the original and optimized implementations. | **1,489.1 ms → 28 ms (53.2× speedup)** |
+| **09** | **Pytest Verification** | Runs automated regression and schema tests. | **7/7 tests passed** |
+| **10** | **Bandit SAST Scan** | Scans the generated code for security vulnerabilities. | **0 high-severity vulnerabilities** |
+| **11** | **GitHub PR Staging** | Stages the verified fix on `fix/orders-n-plus-one` and creates PR **#247**. | GitHub Pull Request |
+| **12** | **Incident Post-Mortem** | Generates the incident cause, remediation details, benchmark results, and verification summary. | Review-ready post-mortem |
 
 
+```text
 Live Telemetry / APM Alert
           ↓
     Detect & Triage
