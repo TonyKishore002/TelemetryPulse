@@ -14,7 +14,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { supabase, isSupabaseLive } from '../lib/supabaseClient';
 import { mockIncident } from '../data/mockData';
 
-const API_BASE = 'http://localhost:5000';
+const API_BASE = import.meta.env.VITE_API_BASE || '';
 const ORDERS_LIMIT = 100;
 
 /** Derive per-order summary shape from raw Supabase row */

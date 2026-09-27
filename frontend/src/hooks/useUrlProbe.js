@@ -7,7 +7,7 @@
  */
 import { useState, useEffect, useCallback, useRef } from 'react';
 
-const API_BASE = 'http://localhost:5000';
+const API_BASE = import.meta.env.VITE_API_BASE || '';
 export const DEFAULT_PROBE_URL = 'https://lablab.ai/ai-hackathons/ibm-bob-2-hackathon';
 
 export const DEFAULT_INITIAL_DATA = {

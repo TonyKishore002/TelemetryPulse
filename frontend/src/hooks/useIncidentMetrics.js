@@ -11,7 +11,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { mockIncident } from '../data/mockData';
 
-const API_BASE = 'http://localhost:5000';
+const API_BASE = import.meta.env.VITE_API_BASE || '';
 
 /** Generates a short unique trace ID anchored to the current session timestamp */
 function newTraceId() {

@@ -258,7 +258,8 @@ export default function Workstation() {
           })
         });
       } catch (proxyErr) {
-        res = await fetch('http://localhost:5000/api/v1/pr/create', {
+        const apiFallback = import.meta.env.VITE_API_BASE || 'http://localhost:5000';
+        res = await fetch(`${apiFallback}/api/v1/pr/create`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({

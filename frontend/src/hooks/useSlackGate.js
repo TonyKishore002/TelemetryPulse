@@ -9,7 +9,7 @@
  */
 import { useState, useEffect, useCallback, useRef } from 'react';
 
-const CANDIDATE_BASES = ['http://localhost:5000', 'http://localhost:5001'];
+const CANDIDATE_BASES = [import.meta.env.VITE_API_BASE || '', 'http://localhost:5000', 'http://localhost:5001'];
 
 export const DEFAULT_FALLBACK_GATE = {
   status: 'PENDING_APPROVAL',
